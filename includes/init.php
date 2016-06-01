@@ -17,6 +17,3 @@ function myAutoloader($className)
 session_start();
 
 
-// test bullshit **delete later
-echo Test::testMe();
-
