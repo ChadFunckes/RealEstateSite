@@ -10,10 +10,15 @@ spl_autoload_register('myAutoloader');
 */
 function myAutoloader($className)
 {
-	require dirname(dirname(__FILE__)) . '/classes/' . $className . '.php';
+	require dirname(dirname(__FILE__)) . '/classes/' . $className . '.class.php';
 }
 
 // Start session
 session_start();
+// CREATE THIS USER OBJ
+$thisUser = new User();
+// Get Database Object
+$db = Database::getInstance();
 
+// if user stayed logged in load data
 

@@ -16,16 +16,13 @@ include("includes/sideMenu.inc.php");
 	
 	<div id=main>
 	
-	
-	<p>Example Text</p>
-	
-	
+		<p>Example Text</p>
 	
 	</div>
 	
 	
-	
-	
 </body>
 
-<?php // Footer include("includes/footer.inc.php");?> 
+<?php 
+include("includes/LoginWindow.inc.php")
+// Footer include("includes/footer.inc.php");?> 

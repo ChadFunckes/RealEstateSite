@@ -2,6 +2,7 @@
 <?php echo '<title>' . $title . '</title>'; ?>
 <link rel="stylesheet" type="text/css" href="main.css">
 <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
 </head>
 
 <div id="header">
@@ -17,7 +18,7 @@
 
 // Action on login Button Pressed
 $("#loginBtn").click(function(){
-	alert("fffff");
+	$("#login").css('visibility','visible');
 });
 
 </script>
