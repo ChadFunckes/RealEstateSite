@@ -26,12 +26,10 @@ $(document).ready(
 //login Button click
 $("#loginNow").click(function(){
 
-	var userName = $("#userName").val();
-	var password = $("#pwd").val();
+	// var for use in ajax call to check login data
+	var datastring = "name="+$("#userName").val()+"&password="+$("#pwd").val();
 
-	var datastring = "name="+userName+"&password="+password;
-
-// ajax call to process login data
+	// ajax call to process login data
 	$.ajax({
 		url: 'login.php',
 		type: 'post',
@@ -51,13 +49,14 @@ $("#loginNow").click(function(){
 				// var contains all JSON data for login in user
 				var UserData = $.parseJSON(data);
 
-				/// @TODO add persons Name
+				// Puts persons name at the top
 				$('#UsersNameBox').text("Welcome " + UserData.first + " " + UserData.last);
 				
 				// change login to logout
 				$('#loginBtn').text(function(i, oldText) {
 			        return oldText === 'Login' ? 'Logout' : oldText;
 			    });
+			    // change click function *** if user login set do this....if not do that....etc...
 							
 			}
 

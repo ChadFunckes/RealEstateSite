@@ -10,7 +10,7 @@
 
 	<div id="topNav">
 		<p id="loginBtn" class = button>Login</p>
-		<p id = "UsersNameBox">sds</p>
+		<p id = "UsersNameBox"></p>
 	</div>
 
 </div>
