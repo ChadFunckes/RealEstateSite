@@ -1,5 +1,6 @@
 <?php
 require_once('includes/init.php');
+// header('Content-Type: application/json');
 
 $user = $_POST['name'];
 $passwrd = $_POST['password'];
@@ -7,9 +8,8 @@ $passwrd = $_POST['password'];
 $thisUser = new User;
 
 if ($thisUser->login($user, $passwrd)){
-	
-	echo "true";
+	return;
 }
-else echo "false";
 
+echo "error";
 ?>

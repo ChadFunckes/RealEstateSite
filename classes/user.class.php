@@ -10,7 +10,8 @@ class User {
 		if ($data = $result->fetch_array(MYSQLI_ASSOC)){
 			
 			$data['password'] = null;
-			echo json_encode($data); // returns JSON for cookie
+			
+			echo json_encode($data);
 			return true;
 		}
 		else return false;

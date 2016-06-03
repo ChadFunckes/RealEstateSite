@@ -26,20 +26,42 @@ $(document).ready(
 //login Button click
 $("#loginNow").click(function(){
 
-	var request; // ajax request variable
 	var userName = $("#userName").val();
 	var password = $("#pwd").val();
 
 	var datastring = "name="+userName+"&password="+password;
 
-	request = $.post('login.php', datastring, function(response){
-				//alert("reponse" + response);
-				$.cookie("UCR", response);
-				
-				alert($.cookie("UCR"));
-	});
+// ajax call to process login data
+	$.ajax({
+		url: 'login.php',
+		type: 'post',
+		data: datastring,
+		success: function (data) { 
 
-	
+			if (data == "error"){
+				//Process error
+				$("#loginBox").animate({left: '32%'});
+				$("#loginBox").animate({left: '28%'});
+				$("#loginBox").animate({left: '31%'});
+				$("#loginBox").animate({left: '29%'});
+				$("#loginBox").animate({left: '30%'});
+			}
+			else {
+				alert("JSON DATA IS: " + data);
+				$("#login").css('visibility','hidden');
+
+				/// delete this section and replace the Button with ther persons name....
+				$('#loginBtn').text(function(i, oldText) {
+			        return oldText === 'login' ? 'xxx' : oldText;
+			    });
+							
+			}
+
+		},
+		error: function (data) {
+			alert("Some kind of error occured in login, please try again");
+		}
+		});
 	
 }));
 
