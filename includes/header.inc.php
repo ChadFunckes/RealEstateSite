@@ -9,7 +9,8 @@
 <h1>CRE Site</h1>
 
 	<div id="topNav">
-		<p id="loginBtn" class = button>login</p>
+		<p id="loginBtn" class = button>Login</p>
+		<p id = "UsersNameBox">sds</p>
 	</div>
 
 </div>

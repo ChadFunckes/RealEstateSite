@@ -47,12 +47,16 @@ $("#loginNow").click(function(){
 				$("#loginBox").animate({left: '30%'});
 			}
 			else {
-				alert("JSON DATA IS: " + data);
 				$("#login").css('visibility','hidden');
+				// var contains all JSON data for login in user
+				var UserData = $.parseJSON(data);
 
-				/// delete this section and replace the Button with ther persons name....
+				/// @TODO add persons Name
+				$('#UsersNameBox').text("Welcome " + UserData.first + " " + UserData.last);
+				
+				// change login to logout
 				$('#loginBtn').text(function(i, oldText) {
-			        return oldText === 'login' ? 'xxx' : oldText;
+			        return oldText === 'Login' ? 'Logout' : oldText;
 			    });
 							
 			}
