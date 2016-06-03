@@ -15,10 +15,5 @@ function myAutoloader($className)
 
 // Start session
 session_start();
-// CREATE THIS USER OBJ
-$thisUser = new User();
-// Get Database Object
-$db = Database::getInstance();
 
 // if user stayed logged in load data
-

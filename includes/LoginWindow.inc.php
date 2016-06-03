@@ -1,4 +1,3 @@
-
 <!-- Login box section -->
 <div id=login>
 	<div id=loginBox>
@@ -23,17 +22,14 @@
 
 <script>
 $(document).ready(
-//login Button click
+// On login Button click
 $("#loginNow").click(function(){
-
-	// var for use in ajax call to check login data
-	var datastring = "name="+$("#userName").val()+"&password="+$("#pwd").val();
 
 	// ajax call to process login data
 	$.ajax({
 		url: 'login.php',
 		type: 'post',
-		data: datastring,
+		data: "name="+$("#userName").val()+"&password="+$("#pwd").val(),
 		success: function (data) { 
 
 			if (data == "error"){
@@ -45,8 +41,9 @@ $("#loginNow").click(function(){
 				$("#loginBox").animate({left: '30%'});
 			}
 			else {
+				// hide login window
 				$("#login").css('visibility','hidden');
-				// var contains all JSON data for login in user
+				// parse JSON data for login in user
 				var UserData = $.parseJSON(data);
 
 				// Puts persons name at the top
@@ -57,7 +54,7 @@ $("#loginNow").click(function(){
 			        return oldText === 'Login' ? 'Logout' : oldText;
 			    });
 			    // change click function *** if user login set do this....if not do that....etc...
-							
+				// setup cookie or session data for logged in user....			
 			}
 
 		},

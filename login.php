@@ -1,6 +1,5 @@
 <?php
 require_once('includes/init.php');
-// header('Content-Type: application/json');
 
 $user = $_POST['name'];
 $passwrd = $_POST['password'];
