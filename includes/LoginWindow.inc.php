@@ -2,19 +2,17 @@
 <div id=login>
 	<div id=loginBox>
 		<form id="LoginForm">
-		<p class=bigGrey >Login</p>
-		<label for=name>UserName</label><br>
-		<input class="inputBox" type=text id='userName'/><br>
-		<label for=pwd>Password</label><br>
-		<input class="inputBox" type=password id='pwd'/><br><br>
-			<table>
-				<tr><td id=loginNow class=loginBtn>Login</td>
-				<td></td>
-				<td id=signUp class=loginBtn>Sign Up</td>
-				<td></td>
-				<td id=cancel class=loginBtn>Cancel</td>
-				</tr>
-			</table>
+			<p class=biggrey >Login</p>
+			<label for=name>Username:
+				<input class="inputBox" type=text id='userName'/>
+			</label><br><br>
+			<label for=pwd style="width:70px">Password:
+				<input class="inputBox" type=password id='pwd'/>
+			</label><br><br>
+			
+			<a href="login.php" id="loginNow" class="loginBtn">Login</a>
+			<a href="signup.php" id="signUp" class="loginBtn">Sign Up</a>
+			<a href="#" id="cancel" class="loginBtn">X</a>
 		</form>
 	</div>
 </div>
@@ -29,6 +27,8 @@ $("#loginNow").click(function(){
 	$.ajax({
 		url: 'login.php',
 		type: 'post',
+		dataType: 'text',
+		async: 'false',
 		data: "name="+$("#userName").val()+"&password="+$("#pwd").val(),
 		success: function (data) { 
 
@@ -62,7 +62,7 @@ $("#loginNow").click(function(){
 			alert("Some kind of error occured in login, please try again");
 		}
 		});
-	
+	return false;
 }));
 
 // sign up button click

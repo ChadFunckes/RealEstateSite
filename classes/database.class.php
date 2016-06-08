@@ -9,9 +9,9 @@ class Database
 	private function __clone() {}  // disallow cloning the class
 	
 	private static $_Host = 'localhost';
-	private static $_Database = 'cre_site';
-	private static $_User = 'crelogin';
-	private static $_Pass = 'crelogin';
+	private static $_Database = 'cresite';
+	private static $_User = 'cresite';
+	private static $_Pass = 'cresite';
 	
 	public static function getInstance() // get the database connection
 	{
