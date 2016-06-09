@@ -43,16 +43,12 @@ $("#loginNow").click(function(){
 			else {
 				// hide login window
 				$("#login").css('visibility','hidden');
-				// parse JSON data for login in user
-				var UserData = $.parseJSON(data);
 
 				// Puts persons name at the top
-				$('#UsersNameBox').text("Welcome " + UserData.first + " " + UserData.last);
+				$('#UsersNameBox').text("Welcome " + <?php echo json_encode($_SESSION["firstName"] ." " . $_SESSION["lastName"]); ?>);
 				
 				// change login to logout
-				$('#loginBtn').text(function(i, oldText) {
-			        return oldText === 'Login' ? 'Logout' : oldText;
-			    });
+				$('#loginBtn').text("Logout");
 			    // change click function *** if user login set do this....if not do that....etc...
 				// setup cookie or session data for logged in user....			
 			}

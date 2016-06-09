@@ -15,5 +15,3 @@ function myAutoloader($className)
 
 // Start session
 session_start();
-
-// if user stayed logged in load data

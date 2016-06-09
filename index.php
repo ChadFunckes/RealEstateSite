@@ -1,5 +1,5 @@
 <?php
-// Initialisation
+// Initialization
 require_once('includes/init.php');
 // Add Header
 $title = "Upper Class Reality";
