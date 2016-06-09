@@ -85,11 +85,3 @@
 		</ul>
 	</div>
 </div>
-<script>
-
-// Action on login Button Pressed
-$("#loginBtn").click(function(){
-	$("#login").css('visibility','visible');
-});
-
-</script>

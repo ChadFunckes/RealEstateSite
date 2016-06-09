@@ -15,3 +15,9 @@ function myAutoloader($className)
 
 // Start session
 session_start();
+if (!isset($_SESSION['firstName'])){
+	
+	$_SESSION["firstName"] = "no";
+	$_SESSION["lastName"] = "user";
+	
+}

@@ -6,12 +6,9 @@ $passwrd = $_POST['password'];
 
 $thisUser = new User;
 
-if ($thisUser->login($user, $passwrd)){
-	
-	echo "<script> var test='test';  </script>";
-	
+if ($thisUser->login($user, $passwrd)){	
 	return;
 }
-
-echo "error";
+else 
+	echo "error";
 ?>

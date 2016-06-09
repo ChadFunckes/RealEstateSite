@@ -1,3 +1,17 @@
+<?php 
+
+if(isset($_GET['logout']) && $_GET['logout'] == true){
+	$_SESSION["firstName"] = "no";
+}
+
+if ($_SESSION["firstName"] == "no"){
+	echo "<script> var logIn = false; </script>";
+}
+else echo "<script> var logIn = true; </script>";
+
+?>
+
+
 <!-- Login box section -->
 <div id=login>
 	<div id=loginBox>
@@ -18,19 +32,42 @@
 </div>
 <!-- End Login Box Section -->
 
-<script>
-$(document).ready(
-// On login Button click
-$("#loginNow").click(function(){
+<!--  Logout section  -->
+<form name=logout action="index.php" style="display:none;">
+<input type=text name=logout value=true>
+</form>
+<!-- End logout Form -->
 
-	// ajax call to process login data
-	$.ajax({
-		url: 'login.php',
-		type: 'post',
-		dataType: 'text',
-		async: 'false',
-		data: "name="+$("#userName").val()+"&password="+$("#pwd").val(),
-		success: function (data) { 
+
+<script>
+
+if (logIn == true){
+
+	$('#loginBtn').text("Logout"); 
+	$('#UsersNameBox').text("Welcome " + <?php echo json_encode($_SESSION["firstName"] ." " . $_SESSION["lastName"]); ?>);
+
+	$("#loginBtn").click(function(){		
+		document.logout.submit();	
+	});
+
+}
+
+if (logIn == false){
+
+	$("#loginBtn").click(function(){
+		$("#login").css('visibility','visible');
+	});
+
+	$("#loginNow").click(function(e){
+		e.preventDefault();
+		// ajax call to process login data
+		$.ajax({
+			url: 'login.php',
+			type: 'post',
+			dataType: 'text',
+			async: 'false',
+			data: "name="+$("#userName").val()+"&password="+$("#pwd").val(),
+			success: function (data) { 
 
 			if (data == "error"){
 				//Process error
@@ -41,25 +78,16 @@ $("#loginNow").click(function(){
 				$("#loginBox").animate({left: '30%'});
 			}
 			else {
-				// hide login window
-				$("#login").css('visibility','hidden');
-
-				// Puts persons name at the top
-				$('#UsersNameBox').text("Welcome " + <?php echo json_encode($_SESSION["firstName"] ." " . $_SESSION["lastName"]); ?>);
-				
-				// change login to logout
-				$('#loginBtn').text("Logout");
-			    // change click function *** if user login set do this....if not do that....etc...
-				// setup cookie or session data for logged in user....			
+				window.location.href = "index.php";			
 			}
 
 		},
 		error: function (data) {
 			alert("Some kind of error occured in login, please try again");
 		}
-		});
-	return false;
-}));
+	});
+	e.preventDefault();
+});
 
 // sign up button click
 $("#signUp").click(function(){});
@@ -68,5 +96,6 @@ $("#signUp").click(function(){});
 $("#cancel").click(function(){
 	$("#login").css('visibility','hidden')
 });
+}
 
 </script>
