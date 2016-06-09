@@ -1,7 +1,9 @@
 <?php 
 
 if(isset($_GET['logout']) && $_GET['logout'] == true){
+	session_unset();
 	$_SESSION["firstName"] = "no";
+	$_SESSION["lastName"] = "user";
 }
 
 if ($_SESSION["firstName"] == "no"){

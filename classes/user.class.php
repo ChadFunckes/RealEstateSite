@@ -13,6 +13,7 @@ class User {
 			
 			$_SESSION["firstName"] = $data['first'];
 			$_SESSION["lastName"] = $data['last'];
+			$_SESSION["uID"] = $data['user_ID'];
 			$_SESSION["uName"] = $data['userName'];
 			$_SESSION["uType"] = $data['user_Type'];
 			$_SESSION["sType"] = $data['subs_type'];
