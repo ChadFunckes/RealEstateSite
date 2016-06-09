@@ -29,29 +29,13 @@
 }
 
 #loginBtn {
-	position: absolute;
+	position: fixed;
 	right: 1%;
 }
-
-#sideMenu {
+#sigunupBtn {
 	position: fixed;
-	width: 110px;
-	height: 100%;
-	color: black;
-	top: 70px;
-	left: 0px;
-	border-right: 1px solid black;
-	margin: 0px;
+	right: 1%;
 }
-
-#main {
-	position: fixed;
-	/* top and left should be sized under header and to the left of sideMenu */
-	top: 70px;
-	left: 115px;
-	color: black;
-}
-
 /* Login Div Section */
 #login {
 	position: fixed;
@@ -65,48 +49,99 @@
 
 #loginBox {
 	position: relative;
-	top: 30%;
-	left: 30%;
-	width: 350px;
-	height: 250px;
-	border-radius: 0;
+	top: 20%;
+	left: 35%;
+	width: 300px;
+	height: 300px;
 	background: white;
 	color: grey;
 }
-    @media only screen and (max-width: 350px) 
-    {
-		#loginBox 
-			{
-			position: relative;
-			top: 30%;
-			left: 0;
-			width: 340px;
-			height: 250px;
-			border-radius: 0;
-			background: white;
-			color: grey;
-		}
-	}
 
-p.biggrey {
+#loginForm label {
+	text-align: left;
+}
+/* Signup Div Section */
+#signup {
+	position: fixed;
+	visibility: hidden;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.2)
+}
+#signupBox {
+	position: relative;
+	top: 20%;
+	left: 35%;
+	width: 400px;
+	height: 400px;
+	background: white;
+	color: grey;
+}
+#signupForm {
+	position:relative;
+	top: 5px;
+	left: 15px;
+}
+#signupForm label {
+	text-align: left;
+}
+#signupForm .fname {
+	position:relative;
+	left: 2px;
+	border: 1px inset grey;
+	background: #ffffc6;
+	width: 200px;
+}
+#signupForm .lname {
+	position:relative;
+	left: 2px;
+	border: 1px inset grey;
+	background: #ffffc6;
+	width: 200px;
+}
+#signupForm .pass {
+	position:relative;
+	left: 2px;
+	border: 1px inset grey;
+	background: #ffffc6;
+	width: 200px;
+}
+#signupForm .emails {
+	position:relative;
+	left: 2px;
+	border: 1px inset grey;
+	background: #ffffc6;
+	width: 200px;
+}
+.bigGrey {
 	font-size: 30px;
-	margin-left: 0;
-	margin-right: 0;
-	margin-top: 0;
-	margin-bottom: 0;
 }
 
 #loginForm {
 	position:relative;
-	width:350px;
 	top: 5px;
 	left: 15px;
 }
-
+.exitlogin {
+	width: auto;
+	height: auto;
+	border: 1px solid grey;
+	color:grey;
+	padding: 2px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.exitlogin:hover {
+	background-color: #ca3535;
+	color: white;
+}
 .loginBtn {
 	width: auto;
 	height: auto;
-	color:gray;
+	border: 1px solid grey;
+	color:grey;
 	padding: 2px;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -116,16 +151,13 @@ p.biggrey {
 	color: white;
 }
 
-#loginForm td:empty {
-	width: 20px;
-}
 
 .inputBox {
-	position:absolute;
-	left: 12px;
+	position:relative;
+	left: 2px;
 	border: 1px inset grey;
 	background: #ffffc6;
-	width: auto;
+	width: 200px;
 }
 
 /* Flat Button */
@@ -133,7 +165,7 @@ p.biggrey {
 	width: auto;
 	height: auto;
 	height: auto;
-	border: 1px solid white;
+	border: 2px solid white;
 	color: white;
 	font-size: 20px;
 	padding: 7px;
@@ -141,47 +173,4 @@ p.biggrey {
 .button:hover {
 	background-color: white;
 	color: black;
-}
-    @media only screen and (max-width: 350px) 
-    {
-	.button {
-		width: auto;
-		height: auto;
-		height: auto;
-		border: 1px solid white;
-		color: white;
-		font-size: 20px;
-		padding: 7px;
-		margin-top:5px;
-		margin-right: 5px;
-		margin-left: 5px;
-	}
-	.button:hover {
-		background-color: white;
-		color: black;
-	}
-}
-label {
-    width: 70px;
-    margin-left: 10px;
-}
-/* Round Buttons */
-.round-button {
-    width: 10%;
-    height: 0;
-    padding-bottom: 10%;
-    border-radius: 5%;
-    border: 2px solid #f5f5f5;
-    overflow: hidden;
-    background: #464646;
-    box-shadow: 0 0 3px gray;
-}
-.round-button:hover {
-    background: #262626;
-}
-.round-button img {
-    display: block;
-    width: 76%;
-    padding: 12%;
-    height: auto;
 }

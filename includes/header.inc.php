@@ -46,7 +46,11 @@
 		margin-left: 0;
 		margin-right: 0;
 	}
-
+	#signBtn 
+	{
+	    position: absolute;
+	    right: 7%;
+	}
     @media only screen and (max-width: 350px) 
     {
    	.top-bar input 
@@ -80,7 +84,7 @@
 	</div>
 	<div class="top-bar-right">
 		<ul class="menu">
-			<li><p id="loginBtn" class = button>Login</p></li>
+			<li><p id="signBtn" class = button>Signup</p> <p id="loginBtn" class = button>Login</p> </li>
 			<li><p id ="UsersNameBox"></p></li>
 		</ul>
 	</div>

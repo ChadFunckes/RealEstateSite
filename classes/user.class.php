@@ -24,4 +24,13 @@ class User {
 		else return false;
 	}
 	
+	// Ray added the below code Crossing fingers its right. hahaaa.
+	
+    function signup($reg) {
+    	$reg = $_db->prepare("INSERT INTO users (fname, lname, email, pass) VALUES (?, ?, ?, ?)");
+		$reg = $_db->bind_param("sss", $firstname, $lastname, $email, $password);
+		$reg->execute();
+		$reg->close();
+		$_db->close();
+    }
 }

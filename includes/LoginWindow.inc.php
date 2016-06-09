@@ -13,7 +13,6 @@ else echo "<script> var logIn = true; </script>";
 
 ?>
 
-
 <!-- Login box section -->
 <div id=login>
 	<div id=loginBox>
@@ -21,39 +20,39 @@ else echo "<script> var logIn = true; </script>";
 			<p class=biggrey >Login</p>
 			<label for=name>Username:
 				<input class="inputBox" type=text id='userName'/>
-			</label><br><br>
+			</label>
 			<label for=pwd style="width:70px">Password:
 				<input class="inputBox" type=password id='pwd'/>
-			</label><br><br>
+			</label>
 			
 			<a href="login.php" id="loginNow" class="loginBtn">Login</a>
-			<a href="signup.php" id="signUp" class="loginBtn">Sign Up</a>
 			<a href="#" id="cancel" class="loginBtn">X</a>
 		</form>
 	</div>
 </div>
 <!-- End Login Box Section -->
 
+
+<!-- after logging in, what will show in the header. --> 
 <!--  Logout section  -->
-<form name=logout action="index.php" style="display:none;">
-<input type=text name=logout value=true>
-</form>
+	<form name=logout action="index.php" style="display:none;">
+		<input type=text name=logout value=true>
+	</form>
 <!-- End logout Form -->
 
 
 <script>
-
-if (logIn == true){
-
-	$('#loginBtn').text("Logout"); 
-	$('#UsersNameBox').text("Welcome " + <?php echo json_encode($_SESSION["firstName"] ." " . $_SESSION["lastName"]); ?>);
-
-	$("#loginBtn").click(function(){		
-		document.logout.submit();	
-	});
-
-}
-
+// outcome of logging in. 
+if (logIn == true)
+	{
+		$('#loginBtn').text("Logout"); 
+		$('#UsersNameBox').text("Welcome " + <?php echo json_encode($_SESSION["firstName"] ." " . $_SESSION["lastName"]); ?>);
+		$("#loginBtn").click(function()
+		{		
+			document.logout.submit();	
+		});
+	}
+// outcome of login failure
 if (logIn == false){
 
 	$("#loginBtn").click(function(){
@@ -90,14 +89,9 @@ if (logIn == false){
 	});
 	e.preventDefault();
 });
-
-// sign up button click
-$("#signUp").click(function(){});
-
 //cancel button click
 $("#cancel").click(function(){
 	$("#login").css('visibility','hidden')
 });
 }
-
 </script>
