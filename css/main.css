@@ -12,13 +12,52 @@
 	height: 70px;	
 }
 
-#topNav {
-	position: fixed;
-	top: 0px;
-	left: 0px;
-	width: 100%;
-	font-weight: bold;
-}
+  .menu > li > a {
+    display: block;
+    padding: 0.5rem 1rem;
+    line-height: 1;
+ 
+    }
+  .menu > li > p {
+    display: block;
+    padding: 0.5rem 1rem;
+    line-height: 1;
+    font:menu;
+    }
+   .top-bar .button.alert 
+    	{
+		width: 70px;
+		font-size:small;
+		padding: 12px;
+		margin-top: 0;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	#signBtn 
+	{
+	    position: absolute;
+	    right: 7%;
+	}
+    @media only screen and (max-width: 350px) 
+    {
+   	.top-bar input 
+   		{
+	    max-width: 80px;
+    	}
+    .top-bar .button.alert 
+    	{
+		width: 70px;
+		font-size:small;
+		padding: 12px;
+		margin-top: 0;
+		margin-left: 0;
+		margin-right: 0;
+		}
+	.top-bar 
+		{
+		height: 100px;
+		}
+    }
 
 #UsersNameBox {
 	margin: 0px;

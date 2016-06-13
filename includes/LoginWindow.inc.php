@@ -1,17 +1,3 @@
-<?php 
-
-if(isset($_GET['logout']) && $_GET['logout'] == true){
-	session_unset();
-	$_SESSION["firstName"] = "no";
-	$_SESSION["lastName"] = "user";
-}
-
-if ($_SESSION["firstName"] == "no"){
-	echo "<script> var logIn = false; </script>";
-}
-else echo "<script> var logIn = true; </script>";
-
-?>
 
 <!-- Login box section -->
 <div id=login>

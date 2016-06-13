@@ -1,9 +1,3 @@
-<?php 
-	if(!isset($_GET['firstName']) && !isset($_GET['lastName']))
-	{
-	
-	}
-?>
 <!-- Signup box section -->
 
 <div id=signup>
@@ -30,7 +24,6 @@
 
 <script>
 // outcome of logging in. 
-$("#signup").css('visibility','hidden');
 $("#signBtn").click(function(){
 	$("#signup").css('visibility','visible')
 });
