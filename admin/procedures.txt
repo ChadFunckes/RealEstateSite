@@ -1,0 +1,36 @@
+-- REMEMBER!! IN MYPHPADMIN TO CHANGE DELIMITER TO // --
+
+DROP PROCEDURE IF EXISTS checkEmail;
+DROP PROCEDURE IF EXISTS checkUName//
+DROP PROCEDURE IF EXISTS getUser//
+DROP PROCEDURE IF EXISTS newUser//
+
+
+CREATE PROCEDURE `checkEmail`(emailin TEXT)
+BEGIN
+SELECT email 
+FROM users
+WHERE email = emailin
+LIMIT 1;
+END//
+
+CREATE PROCEDURE `checkUName`(Uname text)
+BEGIN
+SELECT userName FROM users
+WHERE userName = Uname
+LIMIT 1;
+END//
+
+CREATE PROCEDURE `getUser`(usr text, pass text)
+BEGIN
+SELECT * 
+FROM users
+WHERE users.userName = usr AND users.password = pass
+LIMIT 1;
+end//
+
+CREATE PROCEDURE `newUser`(IN `fname` TEXT, IN `lname` TEXT, IN `uname` TEXT, IN `uemail` TEXT, IN `upass` TEXT)
+BEGIN
+INSERT INTO users
+VALUES (fname, lname, uname, uemail, upass, "a", "a", null, null, null, null, null, null, null,'');
+END//
