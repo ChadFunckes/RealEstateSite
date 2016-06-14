@@ -13,7 +13,7 @@ class User {
 			
 			$_SESSION["firstName"] = $data['first'];
 			$_SESSION["lastName"] = $data['last'];
-			$_SESSION["uID"] = $data['user_ID'];
+			//$_SESSION["uID"] = $data['user_ID'];
 			$_SESSION["uName"] = $data['userName'];
 			$_SESSION["uType"] = $data['user_Type'];
 			$_SESSION["sType"] = $data['subs_type'];
@@ -58,6 +58,14 @@ class User {
     	echo "alert($query)";
     	// return value false on DB error
     	$result = Database::getInstance()->query($query) or die ("false");
+    	
+    	$_SESSION["firstName"] = $fname;
+    	$_SESSION["lastName"] = $lname;
+    	//$_SESSION["uID"] = $data['user_ID'];
+    	$_SESSION["uName"] = $uName;
+    	$_SESSION["uType"] = "a";
+    	$_SESSION["sType"] = "a";
+    	$_SESSION["email"] = $email;
     	
 		return "true";
     }
