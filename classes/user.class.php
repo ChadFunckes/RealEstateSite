@@ -33,4 +33,32 @@ class User {
 		$reg->close();
 		$_db->close();
     }
+    
+    static function checkUserName($name){
+    	$query = 'CALL checkUName("' . $name . '")';
+    	$result = Database::getInstance()->query($query) or die ("error");
+    	if ($data = $result->fetch_array(MYSQLI_ASSOC)){
+    		return true;
+    	}
+    	return false;
+    }
+    
+    static function checkEmail($name) {    	
+    	$query = 'CALL checkEmail("' . $name . '")';
+    	$result = Database::getInstance()->query($query) or die ("error");
+    	if ($data = $result->fetch_array(MYSQLI_ASSOC)){
+    		return true;
+    	}
+    	return false;
+    }
+    
+    static function makeNewUser ($fname, $lname, $uName, $email, $pass){
+    	$query = 'CALL newUser("' . $fname . '","' . $lname . '","' . $uName . '","' . $email . '","' . $pass . '")';
+    	
+    	echo "alert($query)";
+    	// return value false on DB error
+    	$result = Database::getInstance()->query($query) or die ("false");
+    	
+		return "true";
+    }
 }

@@ -14,6 +14,8 @@ function myAutoloader($className)
 	
 }
 
+
+/*
 // <!--Here is some changes I made Chad for the purpose of MVC Tutorial I found online -->
 // tutorial link: http://phpocean.com/tutorials/back-end/how-to-start-your-own-php-mvc-framework-in-4-steps/28
 $url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'],'/')) : '/';
@@ -92,7 +94,7 @@ else
 	}
 }
 //<!-- End of my changes  -->
-
+*/
 // Start session
 session_start();
 if (!isset($_SESSION['firstName'])){

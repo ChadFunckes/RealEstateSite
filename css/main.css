@@ -114,7 +114,7 @@
 	top: 20%;
 	left: 35%;
 	width: 400px;
-	height: 400px;
+	height: 500px;
 	background: white;
 	color: grey;
 }
@@ -126,34 +126,21 @@
 #signupForm label {
 	text-align: left;
 }
-#signupForm .fname {
+#signupForm .inputBox {
 	position:relative;
 	left: 2px;
 	border: 1px inset grey;
 	background: #ffffc6;
 	width: 200px;
 }
-#signupForm .lname {
-	position:relative;
-	left: 2px;
-	border: 1px inset grey;
-	background: #ffffc6;
-	width: 200px;
+
+#signupForm .errorInBox {
+	background: red;
+	color: white;
 }
-#signupForm .pass {
-	position:relative;
-	left: 2px;
-	border: 1px inset grey;
-	background: #ffffc6;
-	width: 200px;
-}
-#signupForm .emails {
-	position:relative;
-	left: 2px;
-	border: 1px inset grey;
-	background: #ffffc6;
-	width: 200px;
-}
+
+/* end sign up box div */
+
 .bigGrey {
 	font-size: 30px;
 }
