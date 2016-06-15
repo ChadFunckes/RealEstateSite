@@ -33,6 +33,7 @@ if (logIn == true)
 	{
 		$('#loginBtn').text("Logout"); 
 		$('#UsersNameBox').text("Welcome " + <?php echo json_encode($_SESSION["firstName"] ." " . $_SESSION["lastName"]); ?>);
+		$("#signBtn").css('visibility','hidden')
 		$("#loginBtn").click(function()
 		{		
 			document.logout.submit();	

@@ -32,6 +32,7 @@ var signupEmailBad = true;
 
 // sign up button selected
 $("#signup").submit(function(e) { 
+	$("#signup").css('visibility','hidden')
 	e.preventDefault();
 	if (signupUNameBad == true){
 		alert("The User Name Selected is already in use, Please choose a different User Name");
@@ -52,10 +53,8 @@ $("#signup").submit(function(e) {
 		success: function (data) { 
 			// if data = true then the user was added, false the user was declined for some reason
 			if (data == "true") {
-
 			// go to profile page 
-				alert("make a profile page");
-				
+				header('location: profile.php');
 			}
 			else if (data == "false"){
 				alert("database error, please try again");
