@@ -767,7 +767,17 @@ button {
   .medium-offset-1 {
     margin-left: 8.33333%; }
   .medium-3 {
-    width: 25%; }
+    width: 22%; 
+    border: solid;
+    border-color:beige;
+    background-color: white;
+    height: 500px;
+    border-radius: 15px;
+    text-align: center;
+    padding:10px;
+    font-family:sans-serif;
+    font-weight:bolder;
+    }
   .medium-push-3 {
     position: relative;
     left: 25%; }
