@@ -40,6 +40,9 @@
 
 <script>
 // outcome of logging in. 
+
+var codeExistsFlag = false;
+
 if (logIn == true)
 	{
 		$('#loginBtn').text("Logout"); 
@@ -93,6 +96,7 @@ $("#cancel").click(function(){
 });
 //forgot password click
 $("#forgotPassBTN").click(function(){
+	
 	$("#login").css('visibility','hidden');
 	$("#forgotPass").css('visibility','visible');
 
@@ -101,28 +105,50 @@ $("#forgotPassBTN").click(function(){
 			$("#forgotPass").css('visibility','hidden');
 			$("#login").css('visibility','visible');
 		});
-
+		
 		//forgot password submit hit
-		$("#forgotPassBoxSubmit").click(function(){
-			alert("submitted");
+		$("#forgotPassBoxSubmit").click(function(e){
+			e.preventDefault();
+
+			//check if email is in the system
 			$.ajax({
-				url: 'passrecRun.php',
+				url: 'checkEmail.php',
 				type: 'post',
 				dataType: 'text',
 				async: 'false',
-				data: "passrecovery="+$("#forgotPassEmailInput").val(),
-				success: function (data){
-					alert(data);
+				data: "name=" + $("#forgotPassEmailInput").val(),
+				success: function (data) { 
+					// if data = true then the email is taken if data=false then email does not exist
+					// if data = error then temp code was already sent
+					if (data == "false") {
+						alert("That Email Does not exists in the system");
+					}
+					else if (data == "true"){
+						//perform the temp code add
+						$.ajax({
+							url: 'passrecRun.php',
+							type: 'post',
+							dataType: 'text',
+							async: 'false',
+							data: "passrecovery="+$("#forgotPassEmailInput").val(),
+							success: function (data){
+								//alert(data);
+								if (data == "error"){
+									alert("shits in the system");
+								}
+							},
+							error: function (data) {
+								alert("Some kind of error occured in login, please try again");
+							}
+						});
+					}
 				},
 				error: function (data) {
 					alert("Some kind of error occured in login, please try again");
 				}
-
-			});
-		});
-
-		
-});
+			}); // end email check
+		}); // end forget box submission func		
+}); // end forgotpassword dialog functions
 }// end of script if user is NOT logged in
 
 
