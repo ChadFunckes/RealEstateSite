@@ -1,10 +1,4 @@
-<?php
-// Initialization
-require_once('includes/init.php');
-// Add Header
-$title = "BizRealty";
-include("includes/header.inc.php");
-?>
+
  
 <body>
 <hr />
@@ -23,12 +17,4 @@ include("includes/header.inc.php");
       $(document).foundation();
 </script>
 </body>
-
-<?php 
-
-include("includes/LoginWindow.inc.php"); 
-include("includes/SignupWindow.inc.php");
-include("includes/footer.php");
-
-?> 
 

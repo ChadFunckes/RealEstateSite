@@ -10,7 +10,7 @@
 			<label for=pwd style="width:70px">Password:
 				<input class="inputBox" type=password id='pwd'/>
 			</label>
-			
+			<a id="forgotPassBTN">Forget Password?</a>
 			<a href="login.php" id="loginNow" class="loginBtn">Login</a>
 			<a href="#" id="cancel" class="loginBtn">X</a>
 		</form>
@@ -18,6 +18,17 @@
 </div>
 <!-- End Login Box Section -->
 
+<!-- Fogot password box -->
+<div id="forgotPass" >
+	<div id="forgotPassBox" >
+			<h6 text-align = center >Please enter your email address:</h6>
+ 			<form id="passrec">
+ 				<input type="email" class="passrecovery" placeholder="Your email here...">
+ 				<input id=forgotPassBoxSubmit type="button" value="Submit">
+ 				<input id=forgotPassBoxCancel type="button" value = "Cancel">
+ 			</form>
+	</div></div>
+<!-- End forgot password box -->
 
 <!-- after logging in, what will show in the header. --> 
 <!--  Logout section  -->
@@ -80,5 +91,21 @@ if (logIn == false){
 $("#cancel").click(function(){
 	$("#login").css('visibility','hidden')
 });
-}
+//forgot password click
+$("#forgotPassBTN").click(function(){
+	$("#login").css('visibility','hidden');
+	$("#forgotPass").css('visibility','visible');
+		//forgot passwod cancel hit
+		$("#forgotPassBoxCancel").click(function(){
+			$("#forgotPass").css('visibility','hidden');
+			$("#login").css('visibility','visible');
+		});
+		//forgot pass submit
+		$("#forgotPassBoxSubmit").click(function(){
+			alert("submitted");
+		});
+});
+
+
+}// end of script if user is NOT logged in
 </script>

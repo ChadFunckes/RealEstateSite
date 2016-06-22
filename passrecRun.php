@@ -5,11 +5,9 @@ $email = $_POST['passrecovery'];
 $random_code = mt_rand(5, 15);
 
 
-
 // We got to add a column called temp password in the database to store temporary data.
 $temp_data = $_db->query("INSERT into users (temp_pass) values ('$random_code')");
 $run = execute($temp_data);
-
 
 
 // below I am checking if the email address already exists in the database
