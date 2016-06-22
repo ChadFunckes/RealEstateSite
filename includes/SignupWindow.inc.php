@@ -54,7 +54,7 @@ $("#signup").submit(function(e) {
 			// if data = true then the user was added, false the user was declined for some reason
 			if (data == "true") {
 			// go to profile page 
-				header('location: profile.php');
+				window.location.href = "\profile.php";
 			}
 			else if (data == "false"){
 				alert("database error, please try again");

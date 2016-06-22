@@ -56,6 +56,6 @@ class User {
     	$_SESSION["sType"] = "a";
     	$_SESSION["email"] = $email;
     	
-		return "true";
+		return true;
     }
 }
