@@ -45,8 +45,6 @@ class User {
     
     static function makeNewUser ($fname, $lname, $uName, $email, $pass){
     	$query = 'CALL newUser("' . $fname . '","' . $lname . '","' . $uName . '","' . $email . '","' . $pass . '")';
-    	
-    	echo "alert($query)";
     	// return value false on DB error
     	$result = Database::getInstance()->query($query) or die ("false");
     	
