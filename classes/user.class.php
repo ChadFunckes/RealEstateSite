@@ -58,4 +58,5 @@ class User {
     	
 		return true;
     }
+    
 }

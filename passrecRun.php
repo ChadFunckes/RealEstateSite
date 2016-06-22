@@ -2,8 +2,11 @@
 require_once('includes/init.php');
 
 $email = $_POST['passrecovery'];
-$random_code = mt_rand(5, 15);
+$random_code = mt_rand(11111, 99999);
 
+echo $random_code;
+
+return;
 
 // We got to add a column called temp password in the database to store temporary data.
 $temp_data = $_db->query("INSERT into users (temp_pass) values ('$random_code')");
@@ -24,4 +27,6 @@ if (User::checkEmail($name) == true && $run == true)
 	mail($to, $subject, $message, $headers);
 }
 	
+
+
 ?>

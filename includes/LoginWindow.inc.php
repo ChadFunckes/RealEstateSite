@@ -23,7 +23,7 @@
 	<div id="forgotPassBox" >
 			<h6 text-align = center >Please enter your email address:</h6>
  			<form id="passrec">
- 				<input type="email" class="passrecovery" placeholder="Your email here...">
+ 				<input id=forgotPassEmailInput type="email" class="passrecovery" placeholder="Your email here...">
  				<input id=forgotPassBoxSubmit type="button" value="Submit">
  				<input id=forgotPassBoxCancel type="button" value = "Cancel">
  			</form>
@@ -95,17 +95,35 @@ $("#cancel").click(function(){
 $("#forgotPassBTN").click(function(){
 	$("#login").css('visibility','hidden');
 	$("#forgotPass").css('visibility','visible');
+
 		//forgot passwod cancel hit
 		$("#forgotPassBoxCancel").click(function(){
 			$("#forgotPass").css('visibility','hidden');
 			$("#login").css('visibility','visible');
 		});
-		//forgot pass submit
+
+		//forgot password submit hit
 		$("#forgotPassBoxSubmit").click(function(){
 			alert("submitted");
+			$.ajax({
+				url: 'passrecRun.php',
+				type: 'post',
+				dataType: 'text',
+				async: 'false',
+				data: "passrecovery="+$("#forgotPassEmailInput").val(),
+				success: function (data){
+					alert(data);
+				},
+				error: function (data) {
+					alert("Some kind of error occured in login, please try again");
+				}
+
+			});
 		});
+
+		
 });
-
-
 }// end of script if user is NOT logged in
+
+
 </script>
