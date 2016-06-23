@@ -4,6 +4,7 @@ DROP PROCEDURE IF EXISTS checkEmail;
 DROP PROCEDURE IF EXISTS checkUName//
 DROP PROCEDURE IF EXISTS getUser//
 DROP PROCEDURE IF EXISTS newUser//
+DROP PROCEDURE IF EXISTS putTempCode//
 
 
 CREATE PROCEDURE `checkEmail`(emailin TEXT)
@@ -33,4 +34,7 @@ CREATE PROCEDURE `newUser`(IN `fname` TEXT, IN `lname` TEXT, IN `uname` TEXT, IN
 BEGIN
 INSERT INTO users
 VALUES (fname, lname, uname, uemail, upass, "a", "a", null, null, null, null, null, null, null,'');
+END//
+
+create PROCEDURE putTempCode(email text, code INT) BEGIN INSERT INTO templogin VALUES(email, code); 
 END//
