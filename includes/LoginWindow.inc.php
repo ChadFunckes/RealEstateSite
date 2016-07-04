@@ -46,7 +46,12 @@ var codeExistsFlag = false;
 if (logIn == true)
 	{
 		$('#loginBtn').text("Logout"); 
-		$('#UsersNameBox').text("Welcome " + <?php echo json_encode($_SESSION["firstName"] ." " . $_SESSION["lastName"]); ?>);
+		$('#UsersNameBox').text(<?php echo json_encode($_SESSION["firstName"] . " " . $_SESSION["lastName"]); ?>);
+		// Added the below code to see if I can have users click on their name to go to their profile but it didn't work.
+		$('#UsersNameBox').click(function pageRedirect() {
+        	window.location.href("\profile.php");
+    	}); 
+    	  	 
 		$("#signBtn").css('visibility','hidden')
 		$("#loginBtn").click(function()
 		{		
@@ -134,7 +139,7 @@ $("#forgotPassBTN").click(function(){
 							success: function (data){
 								//alert(data);
 								if (data == "error"){
-									alert("shits in the system");
+									alert("Error in the system");
 								}
 							},
 							error: function (data) {

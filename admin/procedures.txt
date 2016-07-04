@@ -2,6 +2,7 @@
 
 DROP PROCEDURE IF EXISTS checkEmail;
 DROP PROCEDURE IF EXISTS checkUName//
+DROP PROCEDURE IF EXISTS updateUser//
 DROP PROCEDURE IF EXISTS getUser//
 DROP PROCEDURE IF EXISTS newUser//
 DROP PROCEDURE IF EXISTS putTempCode//
@@ -13,6 +14,23 @@ SELECT email
 FROM users
 WHERE email = emailin
 LIMIT 1;
+END//
+
+CREATE PROCEDURE `updateUser`(IN `id` INT, IN `firstname` VARCHAR(15), IN `lastname` VARCHAR(15), IN `email` VARCHAR(45), IN `username` VARCHAR(15), IN `bio` TEXT, IN `address` TEXT, IN `job` TEXT, IN `skype_id` VARCHAR(45), IN `fone` INT(11), IN `role` VARCHAR(255), IN `faxnum` INT(13))
+BEGIN
+UPDATE users SET
+    fname = firstname,
+    lname = lastname,
+    email = email,
+    userName = username,
+    bio = bio,
+    work_Hist = job,
+    skype_ID = skype_id,
+    phone = fone,
+    fax = faxnum,
+    user_role = role,
+    office_address = address
+WHERE USER_ID = id;
 END//
 
 CREATE PROCEDURE `checkUName`(Uname text)
